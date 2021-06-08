@@ -1,7 +1,7 @@
 import CrescendoEatsApi from './api/api';
 import { useState, useEffect } from 'react';
 import './App.css';
-import { Link } from 'react-router-dom';
+import { BrowserRouter, Link } from 'react-router-dom';
 
 function App() {
     const [recipes, setRecipes] = useState();
@@ -44,14 +44,16 @@ function App() {
 
     return (
       <div className="App">
-        <ul>
-          {recipes ? recipes.map(r => 
-            <li><Link to={`/recipes/${r.uuid}`}>{r.title}</Link></li>
-          ) : ""}
-        </ul>
-        <button onClick={printAll}>Print All</button>
-        <button onClick={() => printOne("e80ea521-4d42-48fe-a7a6-ac8952bc0de4")}>Print One</button>
-        <button onClick={getSpecials}>specials</button>
+          <BrowserRouter>
+            <ul>
+              {recipes ? recipes.map(r => 
+                <li><Link to={`/recipes/${r.uuid}`}>{r.title}</Link></li>
+              ) : ""}
+            </ul>
+            <button onClick={printAll}>Print All</button>
+            <button onClick={() => printOne("e80ea521-4d42-48fe-a7a6-ac8952bc0de4")}>Print One</button>
+            <button onClick={getSpecials}>specials</button>
+          </BrowserRouter>
       </div>
     );
 }

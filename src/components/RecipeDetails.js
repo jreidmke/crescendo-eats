@@ -12,11 +12,18 @@ function RecipeDetails() {
             setRecipe(res)
         }
         getRecipe();
-    }, []);
+    }, [recipeId]);
 
     return(
         <div>
-            {recipe ? <h1>{recipe.title}, <small>{recipe.description}</small></h1> : ""}
+            <div>
+                {recipe ? 
+                    <div>
+                        <img src={`${recipe.images.full}`} width="100%" height="100%"/>
+                         <h1>{recipe.title}, <small>{recipe.description}</small></h1>
+                    </div>
+            : ""}
+            </div>
         </div>
     )
 }

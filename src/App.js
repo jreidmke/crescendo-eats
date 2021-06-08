@@ -1,5 +1,3 @@
-import CrescendoEatsApi from './api/api';
-import { useState, useEffect } from 'react';
 import './App.css';
 import { BrowserRouter } from 'react-router-dom';
 

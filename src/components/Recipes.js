@@ -16,6 +16,7 @@ function Recipes() {
 
     return(
         <div>
+            <h4>Check Out These Recipes</h4>
             {recipes ? recipes.map(r => 
             <RecipeCard recipe={r}/>)
             : ""

@@ -6,15 +6,18 @@ function RecipeCard({recipe}) {
     return(
         <div className="container" id="recipe-card">
             <div className="row text-center">
-                <div className="col-2">
+                <div className="col-3">
                     <Link to={`/recipes/${recipe.uuid}`}>
                         <img src={recipe.images.small}/>
                         <p>
                             {recipe.title}
                         </p>
                     </Link>
-                    <small>{recipe.description}</small>
+                </div>
 
+                <div className="col-3">
+
+                        <small>{recipe.description}</small>
                     <p>
                         <GiKnifeFork/> {recipe.servings} servings.
                     </p>

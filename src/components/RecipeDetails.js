@@ -1,9 +1,11 @@
 import CrescendoEatsApi from '../api/api';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useParams } from "react-router-dom";
 import "../styling/recipe-details.css";
+import SpecialsContext from '../context/SpecialsContext';
 
 function RecipeDetails() {
+    const { specials, ingredientIds } = useContext(SpecialsContext);
     const { recipeId } = useParams();
     const [recipe, setRecipe] = useState();
 
@@ -42,7 +44,7 @@ function RecipeDetails() {
                             <ul id='ingredient-list'>
                                 {recipe.ingredients.map(i => 
                                     <li key={i.uuid} id="ingredient"> 
-                                        <input type="checkbox"/> <small>{i.amount} {i.measurement} {i.measurement ? "of" : ""} {i.name}</small>
+                                        <input type="checkbox"/> {ingredientIds.indexOf(i.uuid) !== -1 ? <small><mark>{i.amount} {i.measurement} {i.measurement ? "of" : ""} {i.name}</mark></small> : <small>{i.amount} {i.measurement} {i.measurement ? "of" : ""} {i.name}</small>}
                                     </li>
                                     )}
                             </ul>

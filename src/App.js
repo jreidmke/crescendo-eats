@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import CrescendoEatsApi from './api/api';
 import Routes from './routes/Routes';
 import NavBar from "./components/NavBar";
-import SpecialsContext from './context/UserContext';
+import SpecialsContext from './context/SpecialsContext';
 import { useEffect, useState } from 'react';
 
 function App() {
@@ -12,12 +12,12 @@ function App() {
 
   useEffect(() => {
     async function getSpecialIds() {
-      const specials = await CrescendoEatsApi.getSpecials();
-      setSpecials(specials);
+      const res = await CrescendoEatsApi.getSpecials();
+      setSpecials(res);
       setIngredientIds(res.map(x => x.ingredientId))
     };
     getSpecialIds();
-  })
+  }, [])
 
   return (
     <div className="App">

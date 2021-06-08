@@ -4,4 +4,4 @@ import React from "react";
 
 const SpecialsContext = React.createContext();
 
-export default UserContext;
+export default SpecialsContext;

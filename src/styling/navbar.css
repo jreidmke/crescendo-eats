@@ -1,0 +1,13 @@
+.navbar {
+    background-color: #FFFDD0;
+}
+
+#title {
+    font-family: 'Pacifico', cursive;
+    font-size: 6rem;
+    margin-right: 4rem;
+}
+
+#tagline {
+    color: grey
+}

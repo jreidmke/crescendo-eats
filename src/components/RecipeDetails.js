@@ -78,8 +78,8 @@ function RecipeDetails() {
                             <ul id="directions-list">
                                 {recipe.directions.map(d =>
                                     <li key={d.instructions} id="direction">
-                                        <input type="checkbox" className="m-1"/>
-                                        <small>{d.optional ? d.instructions : <b>{d.instructions}</b>}</small>
+                                        <p><input type="checkbox" className="m-1"/>
+                                        {d.optional ? d.instructions : <b>{d.instructions}</b>}</p>
                                     </li>
                                     )}
                             </ul>

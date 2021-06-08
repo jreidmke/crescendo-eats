@@ -16,14 +16,20 @@ function RecipeDetails() {
 
     return(
         <div>
-            <div>
-                {recipe ? 
-                    <div>
-                        <img src={`${recipe.images.full}`} width="100%" height="100%"/>
-                         <h1>{recipe.title}, <small>{recipe.description}</small></h1>
+            {recipe ? 
+                <div className="container">
+                    <div className="row">
+                        <div className="col-4">
+                            <img src={`${recipe.images.medium}`}/>
+                            <h1>{recipe.title}</h1>
+                        </div>
+                        <div className="col-4">
+                            <h1>HEY</h1>
+                        </div>
                     </div>
+                </div>
+
             : ""}
-            </div>
         </div>
     )
 }

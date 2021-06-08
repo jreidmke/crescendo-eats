@@ -17,7 +17,7 @@ function Recipes() {
         <div>
             <ul>
               {recipes ? recipes.map(r => 
-                <li><Link to={`/recipes/${r.uuid}`}>{r.title}</Link></li>
+                <li key={r.uuid}><Link to={`/recipes/${r.uuid}`}>{r.title}</Link></li>
               ) : ""}
             </ul>
         </div>

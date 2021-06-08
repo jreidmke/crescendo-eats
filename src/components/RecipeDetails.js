@@ -3,6 +3,50 @@ import { useState, useEffect, useContext } from 'react';
 import { useParams } from "react-router-dom";
 import "../styling/recipe-details.css";
 import SpecialsContext from '../context/SpecialsContext';
+import DropDown from "./DropDown";
+
+const optionsArr = [
+    {
+      name: "opt1",
+      label: "Option 1",
+      onClick: () => {}
+    },
+    {
+      name: "opt2",
+      label: "Option 2",
+      onClick: () => {}
+    },
+    {
+      name: "opt3",
+      label: "Option 3",
+      onClick: () => {}
+    },
+    {
+      name: "opt4",
+      label: "Sub Option 4",
+      onClick: () => {},
+      subMenu: [
+        {
+          name: "subOpt4",
+          label: "Sub Option 1",
+          onClick: () => {}
+        }
+      ]
+    },
+    {
+      name: "opt5",
+      label: "Sub Option 5",
+      onClick: () => {},
+      subMenu: [
+        {
+          name: "subOpt5",
+          label: "Sub Option 2",
+          onClick: () => {}
+        }
+      ]
+    }
+  ];
+  
 
 function RecipeDetails() {
     const { specials, ingredientIds } = useContext(SpecialsContext);
@@ -91,7 +135,6 @@ function RecipeDetails() {
                 </div>
 
             : ""}
-
         </div>
     )
 }

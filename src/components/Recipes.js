@@ -1,6 +1,7 @@
 import CrescendoEatsApi from '../api/api';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import RecipeCard from './RecipeCard';
 
 function Recipes() {
     const [recipes, setRecipes] = useState();
@@ -15,13 +16,14 @@ function Recipes() {
 
     return(
         <div>
-            <ul>
-              {recipes ? recipes.map(r => 
-                <li key={r.uuid}><Link to={`/recipes/${r.uuid}`}>{r.title}</Link></li>
-              ) : ""}
-            </ul>
+            {recipes ? recipes.map(r => 
+            <RecipeCard recipe={r}/>)
+            : ""
+            }
         </div>
     )
 };
 
 export default Recipes;
+
+{/* <li key={r.uuid}><Link to={`/recipes/${r.uuid}`}>{r.title}</Link></li> */}

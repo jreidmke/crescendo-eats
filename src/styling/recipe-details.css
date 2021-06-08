@@ -2,7 +2,28 @@
     background-color: pink;
 }
 
-#dish-title {
-    font-size: 6rem;
+#ingredient-list-box {
+    background-color: pink;
+    padding: 1rem;
 }
 
+#directions-box {
+    background-color: paleturquoise;
+    padding: 1rem;
+}
+
+#dish-title {
+    font-size: 5rem;
+}
+
+#ingredient-list, #directions-list {
+    list-style: none;
+}
+
+#directions-list {
+    padding-top: 1rem;
+}
+
+#direction {
+    padding: 5px;
+}

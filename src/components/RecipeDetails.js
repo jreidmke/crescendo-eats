@@ -21,11 +21,11 @@ function RecipeDetails() {
                 <div className="container">
                     <div className="row">
 
-                        <div className="col">
-                            <img src={`${recipe.images.medium}`}/>
+                        <div className="col-4">
+                            <img src={`${recipe.images.full}`} className="img-fluid"/>
                         </div>
 
-                        <div className="col text-wrap" id="dish-title-box">
+                        <div className="col-4 text-wrap" id="dish-title-box">
                             <h1 id="dish-title">{recipe.title}</h1>
                         </div>
 
@@ -33,15 +33,31 @@ function RecipeDetails() {
 
                     <div className="row">
 
-                        <div className="col">
-                            <ul>
+                        <div className="col-4" id="ingredient-list-box">
+                            <h3>Ingredients</h3><br/>
+                            <ul id='ingredient-list'>
                                 {recipe.ingredients.map(i => 
-                                    <li>{i.amount} {i.measurement} {i.measurement ? "of" : ""} {i.name}</li>
+                                    <li key={i.uuid} id="ingredient"> <input type="checkbox"/> {i.amount} {i.measurement} {i.measurement ? "of" : ""} {i.name}</li>
                                     )}
                             </ul>
                         </div>
 
-                        <div className="col"></div>
+                        <div className="col-4" id="directions-box">
+
+                            <h3>Directions</h3>
+
+                            <small><b>Bold directions are mandatory</b>. All others optional.</small>
+
+                            <ul id="directions-list">
+                                {recipe.directions.map(d =>
+                                    <li key={d.instructions} id="direction">
+                                        <input type="checkbox" className="m-1"/>
+                                        <small>{!d.optional ? d.instructions : <b>{d.instructions}</b>}</small>
+                                    </li>
+                                    )}
+                            </ul>
+
+                        </div>
 
                     </div>
 

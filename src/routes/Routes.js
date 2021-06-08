@@ -1,12 +1,24 @@
 import { Switch, Route } from "react-router-dom";
+import Recipes from "../components/Recipes";
 import RecipeDetails from "../components/RecipeDetails";
 
 function Routes() {
-    <Switch>
+    return(
+        <Switch>
 
-        <Route path="/recipes/:recipeId">
-            <RecipeDetails/>
-        </Route>
+            <Route path="/recipes/:recipeId">
+                <RecipeDetails/>
+            </Route>
 
-    </Switch>
+            <Route path="/">
+                <Recipes/>
+            </Route>
+
+            
+
+        </Switch>
+    )
+
 }
+
+export default Routes;

@@ -1,6 +1,7 @@
 import CrescendoEatsApi from '../api/api';
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
+import "../styling/recipe-details.css";
 
 function RecipeDetails() {
     const { recipeId } = useParams();
@@ -19,14 +20,31 @@ function RecipeDetails() {
             {recipe ? 
                 <div className="container">
                     <div className="row">
-                        <div className="col-4">
+
+                        <div className="col">
                             <img src={`${recipe.images.medium}`}/>
-                            <h1>{recipe.title}</h1>
                         </div>
-                        <div className="col-4">
-                            <h1>HEY</h1>
+
+                        <div className="col text-wrap" id="dish-title-box">
+                            <h1 id="dish-title">{recipe.title}</h1>
                         </div>
+
                     </div>
+
+                    <div className="row">
+
+                        <div className="col">
+                            <ul>
+                                {recipe.ingredients.map(i => 
+                                    <li>{i.amount} {i.measurement} {i.measurement ? "of" : ""} {i.name}</li>
+                                    )}
+                            </ul>
+                        </div>
+
+                        <div className="col"></div>
+
+                    </div>
+
                 </div>
 
             : ""}

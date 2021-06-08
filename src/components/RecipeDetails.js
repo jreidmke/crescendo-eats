@@ -39,12 +39,31 @@ function RecipeDetails() {
                         <div className="col-5" id="ingredient-list-box">
                             <h3>Ingredients</h3>
 
-                            <small><mark>A highlighted ingredient</mark> means there is a related special! Click to see more.</small>
+                            <small><b>A bold ingredient means there is a related special. Click on it to see more!</b></small>
 
                             <ul id='ingredient-list'>
                                 {recipe.ingredients.map(i => 
                                     <li key={i.uuid} id="ingredient"> 
-                                        <input type="checkbox"/> {ingredientIds.indexOf(i.uuid) !== -1 ? <small><mark>{i.amount} {i.measurement} {i.measurement ? "of" : ""} {i.name}</mark></small> : <small>{i.amount} {i.measurement} {i.measurement ? "of" : ""} {i.name}</small>}
+                                        <input type="checkbox" className="mx-2"/> 
+                                        
+                                        {ingredientIds && ingredientIds.indexOf(i.uuid) !== -1 ? 
+                                        
+                                        <small>
+                                            <b>
+                                                <a className="dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    {i.amount} {i.measurement} {i.measurement ? "of" : ""} {i.name}
+                                                </a>
+                                            </b>
+
+                                        </small>
+                                        
+
+                                        : 
+                                        
+                                        <small>
+                                            {i.amount} {i.measurement} {i.measurement ? "of" : ""} {i.name}
+                                        </small>}
+
                                     </li>
                                     )}
                             </ul>
@@ -72,6 +91,7 @@ function RecipeDetails() {
                 </div>
 
             : ""}
+
         </div>
     )
 }

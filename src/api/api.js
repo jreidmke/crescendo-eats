@@ -38,8 +38,6 @@ class CrescendoEatsApi {
         return res;    
     };
 
-
-
     static async getSpecials() {
         let res = await this.request(`specials`);
         let ingredientIds = res.map(x => x.ingredientId)

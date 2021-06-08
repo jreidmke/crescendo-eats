@@ -1,8 +1,8 @@
-import CrescendoEatsApi from './api/api';
+import CrescendoEatsApi from '../api/api';
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 
-function App() {
+function RecipeDetails() {
     const { recipeId } = useParams();
     const [recipe, setRecipe] = useState();
 
@@ -11,6 +11,7 @@ function App() {
             const res = await CrescendoEatsApi.getRecipe(recipeId);
             setRecipe(res)
         }
+        getRecipe();
     }, []);
 
     return(
@@ -20,4 +21,4 @@ function App() {
     )
 }
 
-export default App;
+export default RecipeDetails;

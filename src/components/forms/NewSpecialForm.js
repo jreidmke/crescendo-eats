@@ -42,7 +42,7 @@ function NewRecipeForm() {
             <div className="row my-4">
                 <h2 id="script">Heard of a Deal? <FaMoneyBillAlt color="green"/> Let your neighbors know by posting it here!</h2>
 
-                <h4 id="script">Columns on the LEFT are MANDATORY! Columns on the RIGHT are OPTIONAL!</h4>
+                <h4 id="script">Columns on the LEFT are <span style={{color: "red"}}>MANDATORY</span>! Columns on the RIGHT are <span style={{color: "green"}}>OPTIONAL!</span></h4>
             </div>
 
             <form onSubmit={submit}>

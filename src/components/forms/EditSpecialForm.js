@@ -45,7 +45,7 @@ function EditSpecialForm() {
 
     async function submit(e) {
         e.preventDefault();
-        await CrescendoEatsApi.newSpecial(formData);
+        await CrescendoEatsApi.editSpecial(specialId, formData);
         history.push('/')
     }
 

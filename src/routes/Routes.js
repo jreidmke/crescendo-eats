@@ -4,6 +4,8 @@ import RecipeDetails from "../components/recipe-details/RecipeDetails";
 import NewRecipeForm from "../components/forms/NewRecipeForm";
 import EditRecipeForm from "../components/forms/EditRecipeForm";
 import NewSpecialForm from "../components/forms/NewSpecialForm";
+import EditSpecialForm from "../components/forms/EditSpecialForm";
+
 function Routes() {
     return(
         <Switch>
@@ -22,7 +24,11 @@ function Routes() {
 
             <Route exact path="/specials/new">
                 <NewSpecialForm/>
-            </Route>            
+            </Route>
+
+            <Route path="/specials/:specialId/edit">
+                <EditSpecialForm/>    
+            </Route>           
 
             <Route path="/">
                 <Recipes/>

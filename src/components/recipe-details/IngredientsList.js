@@ -1,7 +1,8 @@
 import { useContext } from 'react';
 import SpecialsInfo from './SpecialsInfo';
+import SpecialsContext from '../../context/SpecialsContext';
 
-function IngredientsList(recipe) {
+function IngredientsList({recipe}) {
     const { specials, ingredientIds } = useContext(SpecialsContext);
 
     return(

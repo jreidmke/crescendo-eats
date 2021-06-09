@@ -1,4 +1,4 @@
-function InstructionsList(recipe) {
+function InstructionsList({recipe}) {
     return(
         <div className="col-5" id="directions-box">
 

@@ -1,7 +1,7 @@
 function DetailsImage({recipe}) {
     return(
         <div className="col-5" id="dish-image-box">
-            <img src={`${recipe.images.full}`} className="img-fluid" id="dish-image"/>
+            {"images" in recipe ? <img src={`${recipe.images.full}`} className="img-fluid" id="dish-image"/> : <img src={"/img/no_img.jpg"} className="img-fluid" id="dish-image"/>}
         </div>
     )
 };

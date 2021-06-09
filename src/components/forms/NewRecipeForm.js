@@ -1,15 +1,52 @@
-import { useState } from 'react';
 import CrescendoEatsApi from "../../api/api";
+import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import { useHistory } from 'react-router-dom';
 
 function NewRecipeForm() {
+    const history = useHistory();
+    const [formData, setFormData] = useState({
+        uuid: uuidv4(),
+        title: "",
+        description: "",
+        servings: "",
+        prepTime: "",
+        cookTime: ""
+    });
+
+    function handleChange(e) {
+        const { name, value }= e.target;
+        setFormData(data => ({
+            ...data,
+            [name]: value
+        }));
+    };
+
+    async function submit(e) {
+        e.preventDefault();
+        await CrescendoEatsApi.newRecipe(formData);
+        history.push('/');
+    }
+
     return(
             <div className="container">
                 <div className="row">
                     <h1>Add New Recipe</h1>
+                    <h1>*a uuid will be generated</h1>
                 </div>
 
                 <div className="row">
-
+                    <form onSubmit={submit}>
+                        <input
+                            type="text"
+                            name="title"
+                            onChange={handleChange}
+                            value={formData.title}
+                            placeholder="Dish Name"
+                            className="form-control"
+                            required/>
+                        <button>Sumbit</button>
+                    </form>
                 </div>
             </div>
         )

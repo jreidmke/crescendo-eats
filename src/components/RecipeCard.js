@@ -8,7 +8,7 @@ function RecipeCard({recipe}) {
             <div className="row text-center">
                 <div className="col-3">
                     <Link to={`/recipes/${recipe.uuid}`}>
-                        <img src={recipe.images.small}/>
+                        {"images" in recipe ? <img src={recipe.images.small}/> : <img src={"/img/no_img.jpg"}/>}
                         <p>
                             {recipe.title}
                         </p>

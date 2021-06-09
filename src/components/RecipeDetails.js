@@ -3,7 +3,7 @@ import { useState, useEffect, useContext } from 'react';
 import { useParams } from "react-router-dom";
 import "../styling/recipe-details.css";
 import SpecialsContext from '../context/SpecialsContext';
-import getSpecial from "./SpecialsInfo";
+// import SpecialsInfo from "./SpecialsInfo";
 
 function RecipeDetails() {
     const { specials, ingredientIds } = useContext(SpecialsContext);

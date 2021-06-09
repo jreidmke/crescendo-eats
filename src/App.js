@@ -10,11 +10,15 @@ function App() {
   const [specials, setSpecials] = useState();
   const [ingredientIds, setIngredientIds] = useState();
 
+  const [ingredients, setIngredients] = useState(); 
+
   useEffect(() => {
     async function getSpecialIds() {
       const res = await CrescendoEatsApi.getSpecials();
       setSpecials(res);
-      setIngredientIds(res.map(x => x.ingredientId))
+      setIngredientIds(res.map(x => x.ingredientId));
+      const iRes = await CrescendoEatsApi.getAllIngredients();
+      setIngredients(iRes);
     };
     getSpecialIds();
   }, [])
@@ -23,7 +27,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <SpecialsContext.Provider
-        value={{specials, setSpecials, ingredientIds, setIngredientIds}}>
+        value={{specials, setSpecials, ingredientIds, setIngredientIds, ingredients, setIngredients}}>
           <NavBar/>
           <Routes/>
         </SpecialsContext.Provider>

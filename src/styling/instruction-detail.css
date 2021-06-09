@@ -1,0 +1,12 @@
+.instruction {
+    margin: .5rem;
+    border: 1px lightgrey dashed
+}
+
+#optional {
+    background-color: lightgreen;
+}
+
+#mandatory {
+    background-color: pink;
+};

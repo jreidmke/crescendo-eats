@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useHistory } from 'react-router-dom';
 import NewIngredientDetail from "./NewIngredientDetail";
+import NewInstructionDetail from "./NewInstructionDetail";
 
 import "../../styling/new-form.css";
 
@@ -65,6 +66,7 @@ function NewRecipeForm() {
 
     function addToInstructionList(e) {
         e.preventDefault();
+        instructionData.optional = instructionData.optional === "true";
         setInstructionList([...instructionList, instructionData]);
         setInstructionData(instructionDataDefault);
     }
@@ -169,15 +171,17 @@ function NewRecipeForm() {
 
                             <button>Add Ingredient</button>
                         </form>
+
                         {ingredientList.length ? ingredientList.map(i => 
                         <NewIngredientDetail ingredient={i}/>) : ""}
+
                     </div>
                     <div className="col-4">
                         <form onSubmit={addToInstructionList}>
 
                             <input
                                 type="text"
-                                name="instruction"
+                                name="instructions"
                                 onChange={handleChange}
                                 value={instructionData.instructions}
                                 placeholder="Instruction"
@@ -197,6 +201,10 @@ function NewRecipeForm() {
                             </select>
 
                             <button>Add Instruction</button>
+
+                            {instructionList.length ? instructionList.map(i => 
+                            <NewInstructionDetail instruction={i}/>
+                            ) : ""}
 
                         </form>
                     </div>

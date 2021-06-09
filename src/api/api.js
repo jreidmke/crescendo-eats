@@ -60,8 +60,13 @@ class CrescendoEatsApi {
         return ingredientsArr
     };
 
-    static async getSpecials() {
+    static async getAllSpecials() {
         let res = await this.request(`specials`);
+        return res;
+    };
+
+    static async getSpecial(id) {
+        let res = await this.request(`specials/${id}`);
         return res;
     };
 

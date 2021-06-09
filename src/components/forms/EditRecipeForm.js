@@ -11,7 +11,7 @@ import Alert from '../common/Alert';
 
 //Icons
 import { SiCodechef } from 'react-icons/si';
-import { BsCardList, BsPlusSquare, BsTrash } from 'react-icons/bs';
+import { BsCardList, BsPlusSquare, BsTrash, BsArrowUpShort, BsArrowDownShort } from 'react-icons/bs';
 import { FaCartPlus } from 'react-icons/fa';
 
 import "../../styling/new-form.css";
@@ -98,6 +98,25 @@ function EditRecipeForm() {
         instructionData.optional = instructionData.optional === "true";
         setInstructionList([...instructionList, instructionData]);
         setInstructionData(instructionDataDefault);
+    };
+
+    function moveUp(instruction) {
+        let index = instructionList.map(i => i.instructions).indexOf(instruction);
+        if(!index) return;
+        [instructionList[index - 1], instructionList[index]] = [instructionList[index], instructionList[index-1]];
+        setInstructionList([...instructionList]);
+    };
+
+    function moveDown(instruction) {
+        let index = instructionList.map(i => i.instructions).indexOf(instruction);
+        if(index === instructionList.length - 1) return;
+        [instructionList[index], instructionList[index + 1]] = [instructionList[index + 1], instructionList[index]];
+        setInstructionList([...instructionList]);
+    };
+
+    function removeFromeInstructionList(instruction) {
+        instructionList.splice(instructionList.map(i => i.instructions).indexOf(instruction), 1);
+        setInstructionList([...instructionList]);
     }
 
     async function submit(e) {
@@ -199,6 +218,7 @@ function EditRecipeForm() {
                         <div key={i.uuid}>
                             <NewIngredientDetail ingredient={i} isNew={false} />
                             <BsTrash onClick={()=> removeFromIngredientList(i.uuid)}/>
+                            <hr/>
                         </div>
                         
                         ) : ""}
@@ -238,7 +258,19 @@ function EditRecipeForm() {
 
                     </div>
                     <div className="col-3">
-                        <h5 id="script">3. Finally add directions. You must have at least one instruction to submit a recipe.</h5>
+                        <h5 id="script">3. Use the arrows to reorder your instructions. To remove, hit the <BsTrash/> beneath it. To add a new instruction, scroll down to the form.</h5>
+
+                        {instructionList.length ? instructionList.map(i => 
+                        
+                            <div key={uuidv4()}>
+                                <BsArrowUpShort color="green" onClick={() => moveUp(i.instructions)}/>
+                                <NewInstructionDetail key={uuidv4()} instruction={i}/>
+                                <BsArrowDownShort color="red" onClick={() => moveDown(i.instructions)}/>
+                                <BsTrash onClick={() => removeFromeInstructionList(i.instructions)}/>
+                                <hr/>
+                            </div>
+
+                            ) : ""}
 
                         <form onSubmit={addToInstructionList}>
 
@@ -264,10 +296,6 @@ function EditRecipeForm() {
                             </select>
 
                             <button className="btn btn-info btn-block w-100">Add Instruction <BsCardList/></button>
-
-                            {instructionList.length ? instructionList.map(i => 
-                            <NewInstructionDetail key={uuidv4()} instruction={i}/>
-                            ) : ""}
 
                         </form>
                     </div>

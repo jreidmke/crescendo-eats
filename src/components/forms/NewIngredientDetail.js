@@ -1,5 +1,4 @@
 import "../../styling/ingredient-detail.css"
-import { BsTrash } from 'react-icons/bs';
 
 function NewIngredientDetail({ingredient}) {
 

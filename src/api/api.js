@@ -47,9 +47,7 @@ class CrescendoEatsApi {
     /**Edit recipe */
 
     static async editReciepe(uuid, data) {
-        let res = await this.request(`recipes/${uuid}`, data, "patch");
-        console.log(res);
-        return res;
+        await this.request(`recipes/${uuid}`, data, "patch");
     };
 
     /**Get all ingredients */
@@ -60,19 +58,28 @@ class CrescendoEatsApi {
         return ingredientsArr
     };
 
+    /**Returns all specials */
     static async getAllSpecials() {
         let res = await this.request(`specials`);
         return res;
     };
 
+    /**Returns specified special */
     static async getSpecial(id) {
         let res = await this.request(`specials/${id}`);
         return res;
     };
 
+    /**Posts new special to DB */
     static async newSpecial(data) {
         await this.request(`specials`, data, "post");
     };
+
+    /**Updates special on BE */
+
+    static async editSpecial(uuid, data) {
+        await this.request(`specials/${uuid}`, data, "patch")
+    }
 };
 
 export default CrescendoEatsApi;

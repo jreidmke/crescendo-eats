@@ -1,27 +1,11 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import App from "../App";
+import { MemoryRouter } from "react-router";
+
 import Alert from "../components/common/Alert";
 import Footer from "../components/common/Footer";
 import NavBar from "../components/common/NavBar";
 import Spinner from "../components/common/Spinner";
-import { MemoryRouter } from "react-router";
-
-it("renders without crashing", async function() {
-    render(<MemoryRouter>
-                <App/>        
-            </MemoryRouter>
-    );
-});
-  
-it("matches snapshot", () => {
-    const { asFragment } = render(
-        <MemoryRouter>
-            <App/>        
-        </MemoryRouter>        
-    );    
-    expect(asFragment()).toMatchSnapshot();
-});
 
 it("renders without crashing", async function() {
     render(<MemoryRouter>

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import "../styling/recipe-card.css";
+import "../../styling/recipe-card.css";
 import { GiKnifeFork, GiHotMeal, GiMeal } from 'react-icons/gi';
 
 function RecipeCard({recipe}) {

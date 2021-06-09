@@ -1,5 +1,5 @@
 import { Switch, Route } from "react-router-dom";
-import Recipes from "../components/Recipes";
+import Recipes from "../components/recipe-list/Recipes";
 import RecipeDetails from "../components/recipe-details/RecipeDetails";
 import NewRecipeForm from "../components/forms/NewRecipeForm";
 import EditRecipeForm from "../components/forms/EditRecipeForm";

@@ -1,4 +1,4 @@
-import CrescendoEatsApi from '../api/api';
+import CrescendoEatsApi from '../../api/api';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import RecipeCard from './RecipeCard';

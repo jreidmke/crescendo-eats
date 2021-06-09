@@ -6,6 +6,7 @@ import NewIngredientDetail from "./NewIngredientDetail";
 import NewInstructionDetail from "./NewInstructionDetail";
 import { SiCodechef } from 'react-icons/si';
 import { BsCardList, BsPlusSquare } from 'react-icons/bs';
+import { FaCartPlus } from 'react-icons/fa';
 
 import "../../styling/new-form.css";
 
@@ -176,7 +177,7 @@ function NewRecipeForm() {
                                 className="form-control"
                                 required/>
 
-                            <button className="btn btn-primary btn-block w-100">Add Ingredient <BsPlusSquare/></button>
+                            <button className="btn btn-primary btn-block w-100">Add Ingredient <FaCartPlus/></button>
                         </form>
 
                         {ingredientList.length ? ingredientList.map(i => 
@@ -220,7 +221,7 @@ function NewRecipeForm() {
                 </div>
 
                 <h3 className="my-3" id="script">4. Make sure all your directions and ingredients are accurate before hitting submit!</h3>
-                <button className="btn btn-success btn-lg btn-block w-100" onClick={submit}>Submit</button>
+                <button className="btn btn-success btn-lg btn-block w-100" onClick={submit}>Submit <BsPlusSquare/></button>
 
             </div>
         )

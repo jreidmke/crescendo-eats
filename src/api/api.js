@@ -7,7 +7,7 @@ class CrescendoEatsApi {
     //Generic Request Method, Method Arg Defaults to "GET"
 
     static async request(endpoint, data = {}, method = "get") {
-        console.debug("API Call To: ", endpoint, data, method);
+        console.log("API Call To: ", endpoint, data, method);
 
         const url = `${BASE_URL}/${endpoint}`;
 
@@ -16,7 +16,7 @@ class CrescendoEatsApi {
         try {
             return (await axios({ url, method, data, params })).data;
           } catch (err) {
-            console.error("API Error:", err.response);
+            console.log("API Error:", err);
             let message = err.response.data.error.message;
             throw Array.isArray(message) ? message : [message];
           }

@@ -5,7 +5,7 @@ function Footer() {
         <div className="container">
             <div className="row">
                 <div className="row justify-content-center">
-                    <div className="col-6">
+                    <div className="col-6 my-5">
                         <small>Coded by James Reid</small><br/>
                         <small><FaLocationArrow/> Milwaukee, WI</small><br/>
                         <small><FaPhone/> (630) 338-5693</small><br/>

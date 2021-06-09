@@ -24,33 +24,33 @@ class CrescendoEatsApi {
 
     //Individual API Routes
 
-    /** Get All Recipes */
+    /** Get All Recipes => RETURNS an Array of Recipe Objects*/
 
     static async getAllRecipes() {
         let res = await this.request(`recipes`);
         return res;
     };
 
-    /**Get Recipe */
+    /**Get Recipe => Accepts Recipe UUID as argument and RETURNS a Recipe Object*/
 
     static async getRecipe(id) {
         let res = await this.request(`recipes/${id}`);
         return res;    
     };
 
-    /**Post Recipe */
+    /**Post Recipe => Accepts Recipe Data (including ingredients and instructions arrays) and posts it to BE */
 
     static async newRecipe(data) {
         await this.request(`recipes`, data, "post");
     };
 
-    /**Edit recipe */
+    /**Edit recipe => Accepts Recipe UUID & Recipe Data (including ingredients and instructions arrays) and patches it to BE */
 
-    static async editReciepe(uuid, data) {
+    static async editRecipe(uuid, data) {
         await this.request(`recipes/${uuid}`, data, "patch");
     };
 
-    /**Get all ingredients */
+    /**Get all ingredients => RETURNS an Array of Ingredient Objects*/
     static async getAllIngredients() {
         let res = await this.request(`recipes`);
         let ingredientsArr = res.map(r => r.ingredients).flat();
@@ -58,24 +58,24 @@ class CrescendoEatsApi {
         return ingredientsArr
     };
 
-    /**Returns all specials */
+    /**Get all specials => RETURNS an Array of Special Objects */
     static async getAllSpecials() {
         let res = await this.request(`specials`);
         return res;
     };
 
-    /**Returns specified special */
+    /**Returns specified special => Accepts Special UUID as argument and RETURNS a Recipe Special */
     static async getSpecial(id) {
         let res = await this.request(`specials/${id}`);
         return res;
     };
 
-    /**Posts new special to DB */
+    /**Post Special => Accepts Special Data (including potential ingredient ids) and posts it to BE */
     static async newSpecial(data) {
         await this.request(`specials`, data, "post");
     };
 
-    /**Updates special on BE */
+    /**Edit Special => AAccepts Special Data (including potential ingredient ids) and posts it to BE */
 
     static async editSpecial(uuid, data) {
         await this.request(`specials/${uuid}`, data, "patch")

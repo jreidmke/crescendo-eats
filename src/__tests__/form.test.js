@@ -3,6 +3,7 @@ import { render, fireEvent } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
 
 import NewRecipeForm from "../components/forms/NewRecipeForm";
+import EditRecipeForm from "../components/forms/NewSpecialForm";
 
 it("renders without crashing", async function() {
     render(<MemoryRouter>

@@ -53,7 +53,8 @@ function NewRecipeForm() {
                             onChange={handleChange}
                             value={formData.type}
                             className="form-control"
-                            required>
+                            required
+                            data-testid="special-type">
                                 <option value="" disabled defaultValue>Select Type of Special</option>
                                 <option value="event">Event</option>
                                 <option value="local">Local</option>
@@ -110,7 +111,7 @@ function NewRecipeForm() {
                     </div>
                 </div>
             
-            <button className="btn btn-success btn-lg my-5">Submit <FaPlusSquare/></button>
+            <button className="btn btn-success btn-lg my-5" data-testid="new-special-submit">Submit <FaPlusSquare/></button>
                 
             </form>
         </div>

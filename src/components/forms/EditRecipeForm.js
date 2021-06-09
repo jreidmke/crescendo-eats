@@ -132,7 +132,7 @@ function EditRecipeForm() {
         let editedRecipe = formData;
         editedRecipe.ingredients = ingredientList;
         editedRecipe.directions = instructionList;
-        await CrescendoEatsApi.editReciepe(recipeId, editedRecipe);
+        await CrescendoEatsApi.editRecipe(recipeId, editedRecipe);
         history.push(`/recipes/${recipeId}`);
     }
 

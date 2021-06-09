@@ -2,7 +2,7 @@ function InstructionsList({recipe}) {
     return(
         <div className="col-5" id="directions-box">
 
-            <h3>Directions</h3>
+            <h3 id="script">Directions</h3>
 
             <small><b>Bold directions are mandatory</b>. All others optional.</small>
 

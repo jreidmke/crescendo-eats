@@ -7,7 +7,7 @@ function IngredientsList({recipe}) {
 
     return(
         <div className="col-5" id="ingredient-list-box">
-            <h3>Ingredients</h3>
+            <h3 id="script">Ingredients</h3>
 
             <small><b>A bold ingredient means there is a related special.</b></small>
 

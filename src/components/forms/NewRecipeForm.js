@@ -54,12 +54,14 @@ function NewRecipeForm() {
         }
     };
 
-    function addToIngredientList() {
+    function addToIngredientList(e) {
+        e.preventDefault();
         setIngredientList([...ingredientList, ingredientData]);
         setIngredientData(ingredientDataDefault);
     };
 
-    function addToInstructionList() {
+    function addToInstructionList(e) {
+        e.preventDefault();
         setInstructionList([...instructionList, instructionData]);
         setInstructionData(instructionDataDefault);
     }
@@ -130,56 +132,65 @@ function NewRecipeForm() {
                 </div>
 
                 <div className="row">
-                    <input
-                        type="text"
-                        name="name"
-                        onChange={handleChange}
-                        value={ingredientData.name}
-                        placeholder="Ingredient Name"
-                        className="form-control"
-                        required/>
+                    <form onSubmit={addToIngredientList}>
+                        <input
+                            type="text"
+                            name="name"
+                            onChange={handleChange}
+                            value={ingredientData.name}
+                            placeholder="Ingredient Name"
+                            className="form-control"
+                            required/>
 
-                    <input 
-                        type="number"
-                        name="amount"
-                        onChange={handleChange}
-                        value={ingredientData.amount}
-                        placeholder="Ingredient Amount"
-                        className="form-control"
-                        required/>
+                        <input 
+                            type="number"
+                            name="amount"
+                            onChange={handleChange}
+                            value={ingredientData.amount}
+                            placeholder="Ingredient Amount"
+                            className="form-control"
+                            required/>
 
-                    <input
-                        type="text"
-                        name="measurement"
-                        onChange={handleChange}
-                        value={ingredientData.measurement}
-                        placeholder="Ingredient Measurement"
-                        className="form-control"
-                        required/>
+                        <input
+                            type="text"
+                            name="measurement"
+                            onChange={handleChange}
+                            value={ingredientData.measurement}
+                            placeholder="Ingredient Measurement"
+                            className="form-control"
+                            required/>
 
-                    <button onClick={addToIngredientList}>Add Ingredient</button>
+                        <button>Add Ingredient</button>
+                    </form>
                 </div>
 
                 <div className="row">
-                    <input
-                        type="text"
-                        name="instruction"
-                        onChange={handleChange}
-                        value={instructionData.instruction}
-                        placeholder="Instruction"
-                        className="form-control"
-                        required/>
+                    <form onSubmit={addToInstructionList}>
 
-                    <select
-                        name="optional"
-                        onChange={handleChange}
-                        value={instructionData.optional}
-                        className="form-control"
-                        required>
-                        <option value={true}>Optional</option>
-                        <option value={false}>Madatory</option>   
-                    </select>
-                    <button onClick={addToInstructionList}>Add Instruction</button>
+                        <input
+                            type="text"
+                            name="instruction"
+                            onChange={handleChange}
+                            value={instructionData.instruction}
+                            placeholder="Instruction"
+                            className="form-control"
+                            required/>
+
+                        <select
+                            name="optional"
+                            onChange={handleChange}
+                            value={instructionData.optional}
+                            className="form-control"
+                            required>
+                            <option value="" disabled defaultValue>Select your option</option>
+
+                            <option value={true}>Optional</option>
+                            <option value={false}>Madatory</option>   
+                        </select>
+
+                        <button>Add Instruction</button>
+
+                    </form>
                 </div>
 {console.log(instructionList)}
             </div>

@@ -38,10 +38,18 @@ class CrescendoEatsApi {
         return res;    
     };
 
+    /**Post Recipe */
+
+    static async newRecipe(data) {
+        let res = await this.request(`recipes`, data, "post");
+    }
+
     static async getSpecials() {
         let res = await this.request(`specials`);
         return res;
-    }
+    };
+
+
 };
 
 export default CrescendoEatsApi;

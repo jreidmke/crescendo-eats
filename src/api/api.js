@@ -41,7 +41,7 @@ class CrescendoEatsApi {
     /**Post Recipe */
 
     static async newRecipe(data) {
-        let res = await this.request(`recipes`, data, "post");
+        await this.request(`recipes`, data, "post");
     };
 
     /**Edit recipe */
@@ -58,14 +58,16 @@ class CrescendoEatsApi {
         let ingredientsArr = res.map(r => r.ingredients).flat();
         ingredientsArr.sort((a, b) => a.name.localeCompare(b.name))
         return ingredientsArr
-    }
+    };
 
     static async getSpecials() {
         let res = await this.request(`specials`);
         return res;
     };
 
-
+    static async newSpecial(data) {
+        await this.request(`specials`, data, "post");
+    };
 };
 
 export default CrescendoEatsApi;

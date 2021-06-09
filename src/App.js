@@ -21,7 +21,7 @@ function App() {
       setIngredients(iRes);
     };
     getSpecialIds();
-  }, [])
+  }, []);
 
   return (
     <div className="App">

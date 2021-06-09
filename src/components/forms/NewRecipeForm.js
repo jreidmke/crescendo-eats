@@ -5,6 +5,18 @@ import { useHistory } from 'react-router-dom';
 
 function NewRecipeForm() {
     const history = useHistory();
+    const ingredientDataDefault = {
+        uuid: uuidv4(),
+        name: "",
+        amount: "",
+        measurement: ""
+    };
+
+    const instructionDataDefault = {
+        instruction: "",
+        optional: ""
+    }
+
     const [formData, setFormData] = useState({
         uuid: uuidv4(),
         title: "",
@@ -14,13 +26,43 @@ function NewRecipeForm() {
         cookTime: ""
     });
 
+    const [ingredientData, setIngredientData] = useState(ingredientDataDefault);
+
+    const [ingredientList, setIngredientList] = useState([]);
+
+    const [instructionData, setInstructionData] = useState(instructionDataDefault);
+
+    const [instructionList, setInstructionList] = useState([]);
+
     function handleChange(e) {
         const { name, value }= e.target;
-        setFormData(data => ({
-            ...data,
-            [name]: value
-        }));
+        if(name in formData) {
+            setFormData(data => ({
+                ...data,
+                [name]: value
+            }));
+        } else if(name in ingredientData) {
+            setIngredientData(data => ({
+                ...data,
+                [name]: value
+            }))
+        } else {
+            setInstructionData(data => ({
+                ...data,
+                [name]: value
+            }))
+        }
     };
+
+    function addToIngredientList() {
+        setIngredientList([...ingredientList, ingredientData]);
+        setIngredientData(ingredientDataDefault);
+    };
+
+    function addToInstructionList() {
+        setInstructionList([...instructionList, instructionData]);
+        setInstructionData(instructionDataDefault);
+    }
 
     async function submit(e) {
         e.preventDefault();
@@ -37,6 +79,7 @@ function NewRecipeForm() {
 
                 <div className="row">
                     <form onSubmit={submit}>
+
                         <input
                             type="text"
                             name="title"
@@ -45,23 +88,102 @@ function NewRecipeForm() {
                             placeholder="Dish Name"
                             className="form-control"
                             required/>
+
+                        <input
+                            type="text"
+                            name="description"
+                            onChange={handleChange}
+                            value={formData.description}
+                            placeholder="Dish Description"
+                            className="form-control"
+                            required/>
+
+                        <input
+                            type="number"
+                            name="servings"
+                            onChange={handleChange}
+                            value={formData.servings}
+                            placeholder="Servings"
+                            className="form-control"
+                            required/>
+
+                        <input
+                            type="number"
+                            name="prepTime"
+                            onChange={handleChange}
+                            value={formData.prepTime}
+                            placeholder="Prep Time in Minutes"
+                            className="form-control"
+                            required/>   
+
+                        <input
+                            type="number"
+                            name="cookTime"
+                            onChange={handleChange}
+                            value={formData.cookTime}
+                            placeholder="Cook Time in Minutes"
+                            className="form-control"
+                            required/> 
+
                         <button>Sumbit</button>
                     </form>
                 </div>
+
+                <div className="row">
+                    <input
+                        type="text"
+                        name="name"
+                        onChange={handleChange}
+                        value={ingredientData.name}
+                        placeholder="Ingredient Name"
+                        className="form-control"
+                        required/>
+
+                    <input 
+                        type="number"
+                        name="amount"
+                        onChange={handleChange}
+                        value={ingredientData.amount}
+                        placeholder="Ingredient Amount"
+                        className="form-control"
+                        required/>
+
+                    <input
+                        type="text"
+                        name="measurement"
+                        onChange={handleChange}
+                        value={ingredientData.measurement}
+                        placeholder="Ingredient Measurement"
+                        className="form-control"
+                        required/>
+
+                    <button onClick={addToIngredientList}>Add Ingredient</button>
+                </div>
+
+                <div className="row">
+                    <input
+                        type="text"
+                        name="instruction"
+                        onChange={handleChange}
+                        value={instructionData.instruction}
+                        placeholder="Instruction"
+                        className="form-control"
+                        required/>
+
+                    <select
+                        name="optional"
+                        onChange={handleChange}
+                        value={instructionData.optional}
+                        className="form-control"
+                        required>
+                        <option value={true}>Optional</option>
+                        <option value={false}>Madatory</option>   
+                    </select>
+                    <button onClick={addToInstructionList}>Add Instruction</button>
+                </div>
+{console.log(instructionList)}
             </div>
         )
 };
 
 export default NewRecipeForm;
-
-// "uuid": "e80ea521-4d42-48fe-a7a6-ac8952bc0de4",
-//     "title": "Queso Big Brat Scramble",
-//     "description": "A delicious breakfast, fit for a crowd.",
-//     "images": {
-//       "full": "/img/queso_brat_scramble.jpg",
-//       "medium": "/img/queso_brat_scramble--m.jpg",
-//       "small": "/img/queso_brat_scramble--s.jpg"
-//     },
-//     "servings": 5,
-//     "prepTime": 10,
-//     "cookTime": 20,

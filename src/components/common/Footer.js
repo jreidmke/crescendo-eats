@@ -9,7 +9,7 @@ function Footer() {
                         <small>Coded by James Reid</small><br/>
                         <small><FaLocationArrow/> Milwaukee, WI</small><br/>
                         <small><FaPhone/> (630) 338-5693</small><br/>
-                        <small><FaEnvelope/><a href="mailto:jreidmke@gmail.com"> Send Me an Email</a></small><br/>
+                        <small><FaEnvelope/><a href="mailto:jreidmke@gmail.com"> jreidmke@gmail.com</a></small><br/>
                         <a href="https://github.com/jreidmke">
                             <FaGithub size="2em"/>
                         </a>

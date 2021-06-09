@@ -1,13 +1,13 @@
 import CrescendoEatsApi from "../../api/api";
 import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { useHistory } from 'react-router-dom';
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from 'react-router-dom';
 
 //Components
 import NewIngredientDetail from "./NewIngredientDetail";
 import NewInstructionDetail from "./NewInstructionDetail";
 import Alert from '../common/Alert';
+import Spinner from "../common/Spinner";
 
 //Icons
 import { SiCodechef } from 'react-icons/si';
@@ -300,7 +300,7 @@ function EditRecipeForm() {
                         </form>
                     </div>
                 </div>
-            </div> : ""}
+            </div> : <Spinner/>}
             </div>
         )
 };

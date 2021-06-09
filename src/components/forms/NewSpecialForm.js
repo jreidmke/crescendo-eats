@@ -94,9 +94,9 @@ function NewRecipeForm() {
 
                         <input
                             type="text"
-                            name="promocode"
+                            name="code"
                             onChange={handleChange}
-                            value={formData.promocode}
+                            value={formData.code}
                             placeholder= "Promo Code"
                             className="form-control"/>
 

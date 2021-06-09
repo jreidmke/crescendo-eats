@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     async function getSpecialIds() {
-      const res = await CrescendoEatsApi.getSpecials();
+      const res = await CrescendoEatsApi.getAllSpecials();
       setSpecials(res);
       setIngredientIds(res.map(x => x.ingredientId));
       const iRes = await CrescendoEatsApi.getAllIngredients();

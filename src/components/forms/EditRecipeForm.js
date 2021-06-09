@@ -129,11 +129,11 @@ function EditRecipeForm() {
             setAlert("Must have at least one instruction to submit a recipe!");
             return;
         };
-        let newRecipe = formData;
-        newRecipe.ingredients = ingredientList;
-        newRecipe.directions = instructionList;
-        await CrescendoEatsApi.newRecipe(newRecipe);
-        history.push('/');
+        let editedRecipe = formData;
+        editedRecipe.ingredients = ingredientList;
+        editedRecipe.directions = instructionList;
+        await CrescendoEatsApi.editReciepe(recipeId, editedRecipe);
+        history.push(`/recipes/${recipeId}`);
     }
 
     return(

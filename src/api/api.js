@@ -42,6 +42,14 @@ class CrescendoEatsApi {
 
     static async newRecipe(data) {
         let res = await this.request(`recipes`, data, "post");
+    };
+
+    /**Edit recipe */
+
+    static async editReciepe(uuid, data) {
+        let res = await this.request(`recipes/${uuid}`, data, "patch");
+        console.log(res);
+        return res;
     }
 
     static async getSpecials() {

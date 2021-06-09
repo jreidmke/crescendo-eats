@@ -4,6 +4,8 @@ import { v4 as uuidv4 } from 'uuid';
 import { useHistory } from 'react-router-dom';
 import NewIngredientDetail from "./NewIngredientDetail";
 import NewInstructionDetail from "./NewInstructionDetail";
+import { SiCodechef } from 'react-icons/si';
+import { BsCardList, BsPlusSquare } from 'react-icons/bs';
 
 import "../../styling/new-form.css";
 
@@ -83,12 +85,14 @@ function NewRecipeForm() {
     return(
             <div className="container">
                 <div className="row">
-                    <h1>Add New Recipe</h1>
-                    <h1>*a uuid will be generated</h1>
+                    <h1 className="my-5" id="script">Fancy Yourself a Chef? <SiCodechef/> Add New Recipe!</h1>
                 </div>
 
                 <div className="row">
                     <div className="col-4">
+
+                        <h5 id="script">1. Start here. Name your dish and add other details.</h5>
+
                         <form onSubmit={submit}>
 
                             <input
@@ -136,11 +140,14 @@ function NewRecipeForm() {
                                 className="form-control"
                                 required/> 
 
-                            <button>Sumbit</button>
                         </form>
                     </div>
 
                     <div className="col-4">
+
+                        <h5 id="script">2. Add your ingredients. You must have at least one ingredient to submit a recipe.</h5>
+
+
                         <form onSubmit={addToIngredientList}>
                             <input
                                 type="text"
@@ -169,7 +176,7 @@ function NewRecipeForm() {
                                 className="form-control"
                                 required/>
 
-                            <button>Add Ingredient</button>
+                            <button className="btn btn-primary btn-block w-100">Add Ingredient <BsPlusSquare/></button>
                         </form>
 
                         {ingredientList.length ? ingredientList.map(i => 
@@ -177,6 +184,8 @@ function NewRecipeForm() {
 
                     </div>
                     <div className="col-4">
+                        <h5 id="script">3. Finally add directions. You must have at least one instruction to submit a recipe.</h5>
+
                         <form onSubmit={addToInstructionList}>
 
                             <input
@@ -200,7 +209,7 @@ function NewRecipeForm() {
                                 <option value={false}>Madatory</option>   
                             </select>
 
-                            <button>Add Instruction</button>
+                            <button className="btn btn-info btn-block w-100">Add Instruction <BsCardList/></button>
 
                             {instructionList.length ? instructionList.map(i => 
                             <NewInstructionDetail instruction={i}/>
@@ -209,6 +218,10 @@ function NewRecipeForm() {
                         </form>
                     </div>
                 </div>
+
+                <h3 className="my-3" id="script">4. Make sure all your directions and ingredients are accurate before hitting submit!</h3>
+                <button className="btn btn-success btn-lg btn-block w-100" onClick={submit}>Submit</button>
+
             </div>
         )
 };

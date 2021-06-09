@@ -1,7 +1,6 @@
 import "../../styling/instruction-detail.css"
 
 function NewInstructionsDetail({instruction}) {
-    console.log(instruction)
     if(instruction.optional) {
         return(
             <div className="instruction" id="optional">

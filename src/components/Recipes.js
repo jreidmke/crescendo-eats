@@ -2,7 +2,7 @@ import CrescendoEatsApi from '../api/api';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import RecipeCard from './RecipeCard';
-import { BsCardList } from 'react-icons/bs';
+import { FaPlusCircle, FaPlusSquare } from 'react-icons/fa';
 
 function Recipes() {
     const [recipes, setRecipes] = useState();
@@ -16,21 +16,24 @@ function Recipes() {
     }, []);
 
     return(
-        <div className="container">
-            <h4>Check Out These Recipes...<Link to={`/recipes/new`}>or add your own! <BsCardList/></Link></h4>
-            <div className="row">
-                {recipes ? recipes.map(r =>
-                <div className="col-6"> 
-                    <RecipeCard recipe={r}/>
-                </div>)
-                : ""
-                }
+        <div>
+            {recipes ? 
+            <div className="container">
+                <div className="row my-3">
+                    <h1 id="script">We currently have <span style={{color: "green"}}>{recipes.length}</span> dishes on our menu!</h1>
+                    <h4 id="script">Picky eater? None of these look appetizing? Click <Link to={`/recipes/new`}> here to add your own! <FaPlusCircle color="green"/></Link></h4>
+                    <h5 id="script">Or hear of a special or local deal? Click <Link to={`/specials/new`}>here to add one <FaPlusSquare color="green"/></Link> and help your neighbors!</h5>
+                </div>
+                <div className="row">
+                    {recipes.map(r =>
+                    <div className="col-6"> 
+                        <RecipeCard recipe={r}/>
+                    </div>)}
+                </div>
             </div>
+            : ""}
         </div>
-
     )
 };
 
 export default Recipes;
-
-{/* <li key={r.uuid}><Link to={`/recipes/${r.uuid}`}>{r.title}</Link></li> */}

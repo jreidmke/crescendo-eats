@@ -2,8 +2,13 @@ import CrescendoEatsApi from "../../api/api";
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useHistory } from 'react-router-dom';
+
+//Components
 import NewIngredientDetail from "./NewIngredientDetail";
 import NewInstructionDetail from "./NewInstructionDetail";
+import Alert from '../common/Alert';
+
+//Icons
 import { SiCodechef } from 'react-icons/si';
 import { BsCardList, BsPlusSquare } from 'react-icons/bs';
 import { FaCartPlus } from 'react-icons/fa';
@@ -12,6 +17,9 @@ import "../../styling/new-form.css";
 
 function NewRecipeForm() {
     const history = useHistory();
+
+    const [alert, setAlert] = useState();
+
     const ingredientDataDefault = {
         uuid: uuidv4(),
         name: "",
@@ -76,6 +84,15 @@ function NewRecipeForm() {
 
     async function submit(e) {
         e.preventDefault();
+        console.log(ingredientList);
+        if(!ingredientList.length) {
+            setAlert("Must have at least one ingredient to submit a recipe!");
+            return;
+        };
+        if(!instructionList.length) {
+            setAlert("Must have at least one instruction to submit a recipe!");
+            return;
+        };
         let newRecipe = formData;
         newRecipe.ingredients = ingredientList;
         newRecipe.directions = instructionList;
@@ -86,10 +103,11 @@ function NewRecipeForm() {
     return(
             <div className="container">
                 <div className="row">
-                    <h1 className="my-5" id="script">Fancy Yourself a Chef? <SiCodechef/> Add New Recipe!</h1>
+                    <h1 className="my-5" id="script">Fancy Yourself a Chef? <SiCodechef/> Add a New Recipe!</h1>
                 </div>
 
                 <div className="row">
+                    {alert ? <Alert message={alert}/> : ""}
                     <div className="col-4">
 
                         <h5 id="script">1. Start here. Name your dish and add other details.</h5>
@@ -141,7 +159,12 @@ function NewRecipeForm() {
                                 className="form-control"
                                 required/> 
 
+                            <div className="row">
+                                <h3 className="my-3" id="script">4. Make sure all your directions and ingredients are accurate before hitting submit!</h3>
+                                <button className="btn btn-success btn-lg btn-block w-100">Submit <BsPlusSquare/></button>
+                            </div>
                         </form>
+
                     </div>
 
                     <div className="col-4">
@@ -181,7 +204,7 @@ function NewRecipeForm() {
                         </form>
 
                         {ingredientList.length ? ingredientList.map(i => 
-                        <NewIngredientDetail ingredient={i}/>) : ""}
+                        <NewIngredientDetail key={i.uuid} ingredient={i}/>) : ""}
 
                     </div>
                     <div className="col-4">
@@ -213,16 +236,12 @@ function NewRecipeForm() {
                             <button className="btn btn-info btn-block w-100">Add Instruction <BsCardList/></button>
 
                             {instructionList.length ? instructionList.map(i => 
-                            <NewInstructionDetail instruction={i}/>
+                            <NewInstructionDetail key={uuidv4()} instruction={i}/>
                             ) : ""}
 
                         </form>
                     </div>
                 </div>
-
-                <h3 className="my-3" id="script">4. Make sure all your directions and ingredients are accurate before hitting submit!</h3>
-                <button className="btn btn-success btn-lg btn-block w-100" onClick={submit}>Submit <BsPlusSquare/></button>
-
             </div>
         )
 };

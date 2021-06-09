@@ -16,13 +16,18 @@ function Recipes() {
     }, []);
 
     return(
-        <div>
+        <div className="container">
             <h4>Check Out These Recipes...<Link to={`/recipes/new`}>or add your own! <BsCardList/></Link></h4>
-            {recipes ? recipes.map(r => 
-            <RecipeCard recipe={r}/>)
-            : ""
-            }
+            <div className="row">
+                {recipes ? recipes.map(r =>
+                <div className="col-6"> 
+                    <RecipeCard recipe={r}/>
+                </div>)
+                : ""
+                }
+            </div>
         </div>
+
     )
 };
 

@@ -6,27 +6,23 @@ function RecipeCard({recipe}) {
     return(
         <div className="container" id="recipe-card">
             <div className="row text-center">
-                <div className="col-3">
-                    <Link to={`/recipes/${recipe.uuid}`}>
-                        {"images" in recipe ? <img src={recipe.images.small}/> : <img src={"/img/no_img.jpg"}/>}
-                        <p>
-                            {recipe.title}
-                        </p>
-                    </Link>
-                </div>
-
-                <div className="col-3">
-
-                        <small>{recipe.description}</small>
-                    <p>
-                        <GiKnifeFork/> {recipe.servings} servings.
-                    </p>
-                    <p>
-                        <GiMeal/> {recipe.prepTime} minutes.
-                    </p>
-                    <p>
-                        <GiHotMeal/> {recipe.cookTime} minutes.
-                    </p>
+                <div className="col">
+                    <div className="row">
+                        <Link to={`/recipes/${recipe.uuid}`}>
+                            {"images" in recipe ? <img src={recipe.images.medium} className="img-fluid" id="recipe-image"/> : <img src={"/img/no_img.jpg"} className="img-fluid"/>}
+                            <h3 id="script">
+                                {recipe.title}
+                            </h3>
+                        </Link>
+                    </div>
+                    <div className="row">
+                        <p>{recipe.description}</p>
+                        <small><b>
+                            <GiKnifeFork/> Makes {recipe.servings} servings.  
+                            <GiMeal/> || Prep Time: {recipe.prepTime} minutes.
+                            <GiHotMeal/> || Cook Time: {recipe.cookTime} minutes.
+                        </b></small>
+                    </div>
                 </div>
             </div>
         </div>

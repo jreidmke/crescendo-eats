@@ -50,6 +50,14 @@ class CrescendoEatsApi {
         let res = await this.request(`recipes/${uuid}`, data, "patch");
         console.log(res);
         return res;
+    };
+
+    /**Get all ingredients */
+    static async getAllIngredients() {
+        let res = await this.request(`recipes`);
+        let ingredientsArr = res.map(r => r.ingredients).flat();
+        ingredientsArr.sort((a, b) => a.name.localeCompare(b.name))
+        return ingredientsArr
     }
 
     static async getSpecials() {

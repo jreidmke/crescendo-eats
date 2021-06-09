@@ -1,10 +1,15 @@
 import { Switch, Route } from "react-router-dom";
 import Recipes from "../components/Recipes";
 import RecipeDetails from "../components/RecipeDetails";
+import NewRecipeForm from "../components/forms/NewRecipeForm";
 
 function Routes() {
     return(
         <Switch>
+
+            <Route exact path="/recipes/new">
+                <NewRecipeForm/>
+            </Route>
 
             <Route path="/recipes/:recipeId">
                 <RecipeDetails/>
@@ -12,9 +17,7 @@ function Routes() {
 
             <Route path="/">
                 <Recipes/>
-            </Route>
-
-            
+            </Route>           
 
         </Switch>
     )

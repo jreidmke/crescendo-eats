@@ -15,11 +15,3 @@ function NavBar() {
 };
 
 export default NavBar;
-
-
-{/* <ul className="nav navbar-nav navbar-right">
-<h4>
-    <a href="https://www.linkedin.com/in/jreidmke/"><GrLinkedin color="blue"/></a>
-    <a href="https://github.com/jreidmke"><GrGithub/></a>
-</h4>
-</ul> */}

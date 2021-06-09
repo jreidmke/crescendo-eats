@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import CrescendoEatsApi from './api/api';
 import Routes from './routes/Routes';
 import NavBar from "./components/common/NavBar";
+import Footer from "./components/common/Footer";
 import SpecialsContext from './context/SpecialsContext';
 import { useEffect, useState } from 'react';
 
@@ -30,6 +31,7 @@ function App() {
         value={{specials, setSpecials, ingredientIds, setIngredientIds, ingredients, setIngredients}}>
           <NavBar/>
           <Routes/>
+          <Footer/>
         </SpecialsContext.Provider>
       </BrowserRouter>
     </div>

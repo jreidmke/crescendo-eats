@@ -9,7 +9,7 @@ function RecipeCard({recipe}) {
                 <div className="col">
                     <div className="row">
                         <Link to={`/recipes/${recipe.uuid}`}>
-                            {"images" in recipe ? <img src={recipe.images.medium} className="img-fluid" id="recipe-image"/> : <img src={"/img/no_img.jpg"} className="img-fluid"/>}
+                            {"images" in recipe ? <img src={recipe.images.medium} className="img-fluid" id="recipe-image" alt={recipe.title} data-testid="card-img"/> : <img src={"/img/no_img.jpg"} className="img-fluid"/>}
                             <h3 id="script">
                                 {recipe.title}
                             </h3>

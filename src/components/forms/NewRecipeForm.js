@@ -161,7 +161,7 @@ function NewRecipeForm() {
 
                             <div className="row">
                                 <h3 className="my-3" id="script">4. Make sure all your directions and ingredients are accurate before hitting submit!</h3>
-                                <button className="btn btn-success btn-lg btn-block w-100">Submit <BsPlusSquare/></button>
+                                <button className="btn btn-success btn-lg btn-block w-100" data-testId="submit-new-recipe">Submit <BsPlusSquare/></button>
                             </div>
                         </form>
 
@@ -226,6 +226,7 @@ function NewRecipeForm() {
                                 onChange={handleChange}
                                 value={instructionData.optional}
                                 className="form-control"
+                                data-testid="optional"
                                 required>
                                 <option value="" disabled defaultValue>Select your option</option>
 

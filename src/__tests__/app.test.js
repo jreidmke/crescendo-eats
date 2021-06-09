@@ -6,6 +6,8 @@ import Alert from "../components/common/Alert";
 import Footer from "../components/common/Footer";
 import NavBar from "../components/common/NavBar";
 import Spinner from "../components/common/Spinner";
+import Recipe from "../components/recipe-list/Recipes";
+import RecipeCard from "../components/recipe-list/RecipeCard";
 
 it("renders without crashing", async function() {
     render(<MemoryRouter>

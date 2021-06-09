@@ -1,5 +1,7 @@
 import "../../styling/instruction-detail.css"
 
+//Small Div to view Instruction on New/Edit Recipe form
+
 function NewInstructionsDetail({instruction}) {
     if(instruction.optional) {
         return(

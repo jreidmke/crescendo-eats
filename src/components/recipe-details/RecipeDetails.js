@@ -1,13 +1,18 @@
-import CrescendoEatsApi from '../../api/api';
+//Tools
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
-import "../../styling/recipe-details.css";
 
 //Components
+import CrescendoEatsApi from '../../api/api';
 import DetailsImage from "./DetailsImage";
 import DetailsTitle from './DetailsTitle';
 import IngredientsList from './IngredientsList';
 import InstructionsList from './InstructionsList';
+
+//CSS
+import "../../styling/recipe-details.css";
+
+/**The main recipe detail view. Displays all children components. */
 
 function RecipeDetails() {
     const { recipeId } = useParams();

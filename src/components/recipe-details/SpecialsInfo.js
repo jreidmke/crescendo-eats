@@ -1,6 +1,13 @@
-import "../../styling/specials-box.css";
-import { FaEdit } from 'react-icons/fa';
+//Tools
 import { Link } from 'react-router-dom';
+
+//Icons
+import { FaEdit } from 'react-icons/fa';
+
+//CSS
+import "../../styling/specials-box.css";
+
+/**Displays specials information. Links to Edit Specials Form. */
 
 function SpecialsInfo(id, specials) {
     for(let s of specials) {

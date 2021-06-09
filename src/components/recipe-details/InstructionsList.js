@@ -1,3 +1,5 @@
+/**Instruction list displays the step-by-step process of cooking dish */
+
 function InstructionsList({recipe}) {
     return(
         <div className="col-5" id="directions-box">

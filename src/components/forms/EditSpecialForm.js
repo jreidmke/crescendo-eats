@@ -1,4 +1,4 @@
-import CrescendoEatsApi from "../../api/api";
+//Tools
 import { useState, useContext, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 
@@ -7,10 +7,15 @@ import { FaPlusSquare } from 'react-icons/fa';
 import { GiScreaming } from 'react-icons/gi';
 
 //Components
+import CrescendoEatsApi from "../../api/api";
 import Spinner from "../common/Spinner";
-
-import "../../styling/new-form.css";
 import SpecialsContext from "../../context/SpecialsContext";
+
+//CSS
+import "../../styling/new-form.css";
+
+/**Form to Edit Recipes. User can update dish details, add/remove ingredients, add/remove instructions as well as change the order of instructions.*/
+
 
 function EditSpecialForm() {
     const { specialId } = useParams();

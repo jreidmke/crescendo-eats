@@ -1,9 +1,10 @@
-import CrescendoEatsApi from "../../api/api";
+//Tools
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useHistory } from 'react-router-dom';
 
 //Components
+import CrescendoEatsApi from "../../api/api";
 import NewIngredientDetail from "./NewIngredientDetail";
 import NewInstructionDetail from "./NewInstructionDetail";
 import Alert from '../common/Alert';
@@ -13,7 +14,11 @@ import { SiCodechef } from 'react-icons/si';
 import { BsCardList, BsPlusSquare } from 'react-icons/bs';
 import { FaCartPlus } from 'react-icons/fa';
 
+//CSS
 import "../../styling/new-form.css";
+
+/**Form to create Recipes. User can add dish details, add/remove ingredients, add/remove instructions.*/
+
 
 function NewRecipeForm() {
     const history = useHistory();

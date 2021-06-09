@@ -1,7 +1,8 @@
 import React from "react";
 
-function Alert({ type = "danger", message}) {
+/**Generic Bootstrap Style Alert. Informs user of error. */
 
+function Alert({ type = "danger", message}) {
   return (
       <div className={`alert alert-${type}`} role="alert">
             <p className="mb-0 small">

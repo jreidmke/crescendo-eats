@@ -1,5 +1,10 @@
-import { TiEdit } from "react-icons/ti";
+//Tools
 import { Link } from 'react-router-dom';
+
+//Icons
+import { TiEdit } from "react-icons/ti";
+
+/**Big image for Recipe Details Page. Links to Edit Recipe Form */
 
 function DetailsTitle({recipe}) {
     return(

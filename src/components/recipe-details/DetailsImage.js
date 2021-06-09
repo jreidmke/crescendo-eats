@@ -1,3 +1,5 @@
+/**Big image for Recipe Details Page */
+
 function DetailsImage({recipe}) {
     return(
         <div className="col-5" id="dish-image-box">

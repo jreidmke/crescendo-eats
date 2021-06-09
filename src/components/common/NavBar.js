@@ -1,6 +1,8 @@
 import {Link} from "react-router-dom";
 import "../../styling/navbar.css";
 
+/**Simple Navagation Bar */
+
 function NavBar() {
     return(
         <div>

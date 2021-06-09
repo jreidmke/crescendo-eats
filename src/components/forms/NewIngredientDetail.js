@@ -1,5 +1,7 @@
 import "../../styling/ingredient-detail.css"
 
+//Small Div to view Ingredient on New/Edit Recipe form
+
 function NewIngredientDetail({ingredient}) {
 
     return(

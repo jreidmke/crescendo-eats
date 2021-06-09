@@ -1,6 +1,11 @@
+//Tools
 import { useContext } from 'react';
+
+//Components
 import SpecialsInfo from './SpecialsInfo';
 import SpecialsContext from '../../context/SpecialsContext';
+
+/**Ingredient list displays a recipe's ingredients along with any related specials. Uses SpecialsInfo as a child component. */
 
 function IngredientsList({recipe}) {
     const { specials, ingredientIds } = useContext(SpecialsContext);

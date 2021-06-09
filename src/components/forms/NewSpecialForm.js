@@ -1,15 +1,22 @@
-import CrescendoEatsApi from "../../api/api";
+//Tools
 import { useState, useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useHistory } from 'react-router-dom';
 
+//Components
+import CrescendoEatsApi from "../../api/api";
+import SpecialsContext from "../../context/SpecialsContext";
+
 //Icons
 import { FaMoneyBillAlt, FaPlusSquare } from 'react-icons/fa';
 
+//CSS
 import "../../styling/new-form.css";
-import SpecialsContext from "../../context/SpecialsContext";
 
-function NewRecipeForm() {
+/**Form to create Recipes. User can add special details including location, promocode and related ingredient.*/
+
+
+function NewSpecialForm() {
     const history = useHistory();
     const { ingredients } = useContext(SpecialsContext);
 
@@ -118,4 +125,4 @@ function NewRecipeForm() {
     )
 };
 
-export default NewRecipeForm;
+export default NewSpecialForm;

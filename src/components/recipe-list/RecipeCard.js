@@ -1,6 +1,13 @@
+//Tools
 import { Link } from 'react-router-dom';
-import "../../styling/recipe-card.css";
+
+//Icons
 import { GiKnifeFork, GiHotMeal, GiMeal } from 'react-icons/gi';
+
+//CSS
+import "../../styling/recipe-card.css";
+
+/**Displays Recipe Data on Recipe List page. Links to connected Recipe Details Page */
 
 function RecipeCard({recipe}) {
     return(

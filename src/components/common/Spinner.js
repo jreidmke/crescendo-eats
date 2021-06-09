@@ -1,3 +1,5 @@
+/** Bootstrap Loading Spinner */
+
 function Spinner() {
     return(
         <div className="spinner-grow" role="status">

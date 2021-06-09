@@ -1,5 +1,8 @@
 import { FaGithub, FaLinkedin, FaEnvelope, FaLocationArrow, FaPhone } from "react-icons/fa";
 
+/**Personal information Footer */
+
+
 function Footer() {
     return(
         <div className="container">

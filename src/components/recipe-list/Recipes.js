@@ -1,7 +1,12 @@
-import CrescendoEatsApi from '../../api/api';
+//Tools
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+
+//Components
+import CrescendoEatsApi from '../../api/api';
 import RecipeCard from './RecipeCard';
+
+//Icons
 import { FaPlusCircle, FaPlusSquare } from 'react-icons/fa';
 
 function Recipes() {

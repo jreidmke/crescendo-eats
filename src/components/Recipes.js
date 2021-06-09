@@ -2,6 +2,7 @@ import CrescendoEatsApi from '../api/api';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import RecipeCard from './RecipeCard';
+import { BsCardList } from 'react-icons/bs';
 
 function Recipes() {
     const [recipes, setRecipes] = useState();
@@ -16,7 +17,7 @@ function Recipes() {
 
     return(
         <div>
-            <h4>Check Out These Recipes</h4>
+            <h4>Check Out These Recipes...<Link to={`/recipes/new`}>or add your own! <BsCardList/></Link></h4>
             {recipes ? recipes.map(r => 
             <RecipeCard recipe={r}/>)
             : ""

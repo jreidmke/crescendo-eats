@@ -8,6 +8,7 @@ import Routes from './routes/Routes';
 import NavBar from "./components/common/NavBar";
 import Footer from "./components/common/Footer";
 import SpecialsContext from './context/SpecialsContext';
+import Spinner from "./components/common/Spinner";
 
 //Css
 import './App.css';
@@ -29,12 +30,13 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <SpecialsContext.Provider
-        value={{specials, setSpecials, ingredients, setIngredients}}>
-          <NavBar/>
-          <Routes/>
-          <Footer/>
-        </SpecialsContext.Provider>
+        {specials && ingredients ? 
+          <SpecialsContext.Provider value={{specials, ingredients}}>
+            <NavBar/>
+            <Routes/>
+            <Footer/>
+          </SpecialsContext.Provider>
+        : <Spinner/>}
       </BrowserRouter>
     </div>
     );

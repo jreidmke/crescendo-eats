@@ -49,7 +49,7 @@ function RecipeDetails() {
 
                 </div>
 
-            : Spinner}
+            : <Spinner/>}
         </div>
     )
 }

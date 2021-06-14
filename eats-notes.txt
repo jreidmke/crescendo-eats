@@ -1,0 +1,61 @@
+*Notes**:
+
+1. Removed ingredientIds from context, requiring one less thing to pass around.
+2. Refactored Specials Details to allow for display of multiple Specials for single ingredient.
+3. Point out on IngredientsList.js on line 37, what's going on there?
+
+
+
+	*App.js*
+
+	CONTEXT:
+	-A request is made to getAllSpecials()
+	-Specials are set in context. This is to prevent calls to getAllSpecials on each recipe details page
+	-Ingredient Ids are set in context. Similarly to above, this is to prevent calls to getAllSpecials on each recipe details page
+	-A list of all indregdients are set in context. These will be used on the new/edit specials form.
+	
+	RENDERING:
+	-The return statement of App.js is wrapped in BrowserRouter component, SpecialsContext component. Then a Nav, Routes and Footer. 
+	-I decided to use multiple pages and routing over making this a one pager to avoid aesthetic clutter and allow for more specific views.
+
+	=> /components
+
+	*Recipe.js*
+	The 'landing page'. Makes call getAllRecipes(). Displays results in RecipeCard component. 
+
+	*RecipeCard.js*
+	Displays data from Recipe.js. Includes links to relevant RecipeDetails component.
+
+	*RecipeDetails.js*
+	The real 'meat' of the application. Includes 5 child components (DetailsImage, DetailsTitle, IngredientsList, InstructionList and SpecialsInfo [specifically grandchild and child of IngredientsList]). 
+
+	Grabs recipeId from URL params. Makes getRecipe(recipeId) call. Displays returned data using child components.
+
+	*DetailsImage.js*
+	Desplays image from RecipeDetails.js call || generic image if none returned.
+
+	*DetailsTitle.js*
+	Displays title of dish. Links to edit recipe form included. 
+
+	*IngredientsList.js*
+	-Removed IngredientIds context and refactored to function so data will not need to be passed thru App. 
+	The most complex of the Recipe Details children components. Required specials context to be passed in to create list of related ingredients. (Used to be passed thru context, but that was unneeded).
+	Takes data passed down from RecipeDetails.js and displays the ingredient in list form. 
+	If there is a related special, child component SpecialsInfo.js is also displayed. 
+
+	*SpecialsInfo.js*
+	Specials info takes in an Id and list of Specials. It loops looking for all relavent specials and returns a view of related specails data.
+
+	*InstructionList.js*
+	Displays instruction data. If instruction is mandatory, bolds text. 
+
+	=> /forms
+
+	*NewRecipeForm.js*
+	Pretty standard React form. The only out of the ordinary thing is the ability to update the list of ingredients/instructions before committing to BE. Step 4 is pushed to the left to allow lists to build without moving view downward. Children are NewIngredientDetail/NewInstructionDetail.
+
+	*EditRecipeForm.js*
+	Again, a standard React form. URL contains selected dish to edit, inputs populated with data after get(RecipeCall). One cool function is allowing users to reorder the instructions of a recipe. To accomplish the swap, I used array destructuring. Shares children with NewRecipeForm.
+
+	*NewSpecialForm.js*
+	

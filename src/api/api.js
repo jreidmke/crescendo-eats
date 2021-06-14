@@ -6,6 +6,12 @@ class CrescendoEatsApi {
 
     //Generic Request Method, Method Arg Defaults to "GET"
 
+    /** I used this method rather than a multiple, specified requests to:
+     *      -standardize error handling across all requests
+     *      -cut down on lines
+     *      -instantly clarify purpose of component 
+     */
+
     static async request(endpoint, data = {}, method = "get") {
         console.debug("Api Call To: ", endpoint, data, method);
 
@@ -55,7 +61,7 @@ class CrescendoEatsApi {
         let res = await this.request(`recipes`);
         let ingredientsArr = res.map(r => r.ingredients).flat();
         ingredientsArr.sort((a, b) => a.name.localeCompare(b.name))
-        return ingredientsArr
+        return ingredientsArr;
     };
 
     /**Get all specials => RETURNS an Array of Special Objects */

@@ -95,7 +95,7 @@ function NewSpecialForm() {
                             className="form-control">
                             <option value="" disabled defaultValue>Select Related Ingredient</option>
                             {ingredients ? ingredients.map(i => 
-                                <option value={i.uuid}>{i.name}</option>
+                                <option value={i.uuid} key={uuidv4()}>{i.name}</option>
                             ) : ""
                         }
                         </select>

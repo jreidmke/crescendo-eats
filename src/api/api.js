@@ -60,8 +60,9 @@ class CrescendoEatsApi {
     static async getAllIngredients() {
         let res = await this.request(`recipes`);
         let ingredientsArr = res.map(r => r.ingredients).flat();
-        ingredientsArr.sort((a, b) => a.name.localeCompare(b.name))
-        return ingredientsArr;
+        let uniqueIngredients = Array.from(new Set(ingredientsArr.map(i => i.uuid))).map(uuid => { return ingredientsArr.find(i => i.uuid === uuid)});
+        uniqueIngredients.sort((a, b) => a.name.localeCompare(b.name))
+        return uniqueIngredients;
     };
 
     /**Get all specials => RETURNS an Array of Special Objects */

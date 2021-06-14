@@ -15,7 +15,6 @@ import "../../styling/new-form.css";
 
 /**Form to create Recipes. User can add special details including location, promocode and related ingredient.*/
 
-
 function NewSpecialForm() {
     const history = useHistory();
     const { ingredients } = useContext(SpecialsContext);

@@ -8,6 +8,7 @@ import DetailsImage from "./DetailsImage";
 import DetailsTitle from './DetailsTitle';
 import IngredientsList from './IngredientsList';
 import InstructionsList from './InstructionsList';
+import Spinner from "../common/Spinner";
 
 //CSS
 import "../../styling/recipe-details.css";
@@ -48,7 +49,7 @@ function RecipeDetails() {
 
                 </div>
 
-            : ""}
+            : Spinner}
         </div>
     )
 }

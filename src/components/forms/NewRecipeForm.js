@@ -25,6 +25,7 @@ function NewRecipeForm() {
 
     const [alert, setAlert] = useState();
 
+    //defaults to empty inputs upon new ingredient/instruction.
     const ingredientDataDefault = {
         uuid: uuidv4(),
         name: "",
@@ -56,6 +57,8 @@ function NewRecipeForm() {
 
     function handleChange(e) {
         const { name, value }= e.target;
+
+        //conditional tree to see which state to update
         if(name in formData) {
             setFormData(data => ({
                 ...data,
@@ -76,12 +79,16 @@ function NewRecipeForm() {
 
     function addToIngredientList(e) {
         e.preventDefault();
+
+        //Adds to ingredient list state. Will be committed in submit method
         setIngredientList([...ingredientList, ingredientData]);
         setIngredientData(ingredientDataDefault);
     };
 
     function addToInstructionList(e) {
         e.preventDefault();
+
+        //convert from string to boolean.
         instructionData.optional = instructionData.optional === "true";
         setInstructionList([...instructionList, instructionData]);
         setInstructionData(instructionDataDefault);
@@ -89,7 +96,6 @@ function NewRecipeForm() {
 
     async function submit(e) {
         e.preventDefault();
-        console.log(ingredientList);
         if(!ingredientList.length) {
             setAlert("Must have at least one ingredient to submit a recipe!");
             return;
@@ -99,9 +105,15 @@ function NewRecipeForm() {
             return;
         };
         let newRecipe = formData;
+
+        //assigns ingredient and directions properties in newRecipe object 
         newRecipe.ingredients = ingredientList;
         newRecipe.directions = instructionList;
+
+        //commits it to backend
         await CrescendoEatsApi.newRecipe(newRecipe);
+
+        //takes user home 
         history.push('/');
     }
 

@@ -7,7 +7,7 @@ import CrescendoEatsApi from '../../api/api';
 import RecipeCard from './RecipeCard';
 
 //Icons
-import { FaPlusCircle, FaPlusSquare } from 'react-icons/fa';
+import { FaPlusCircle } from 'react-icons/fa';
 
 function Recipes() {
     const [recipes, setRecipes] = useState();
@@ -27,7 +27,7 @@ function Recipes() {
                 <div className="row my-3">
                     <h1 id="script">We currently have <span style={{color: "green"}}>{recipes.length}</span> dishes on our menu!</h1>
                     <h4 id="script">Picky eater? None of these look appetizing? Click <Link to={`/recipes/new`}> here to add your own! <FaPlusCircle color="green"/></Link></h4>
-                    <h5 id="script">Or hear of a special or local deal? Click <Link to={`/specials/new`}>here to add one <FaPlusSquare color="green"/></Link> and help your neighbors!</h5>
+                    <h5 id="script">Or hear of a special or local deal? Click <Link to={`/specials/new`}>here to add one <FaPlusCircle color="green"/></Link> and help your neighbors!</h5>
                 </div>
                 <div className="row">
                     {recipes.map(r =>

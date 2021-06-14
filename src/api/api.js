@@ -35,7 +35,7 @@ class CrescendoEatsApi {
 
     static async getRecipe(id) {
         let res = await this.request(`recipes/${id}`);
-        return res;    
+        return res;
     };
 
     /**Post Recipe => Accepts Recipe Data (including ingredients and instructions arrays) and posts it to BE */

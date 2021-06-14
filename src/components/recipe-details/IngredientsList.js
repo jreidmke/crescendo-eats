@@ -1,5 +1,5 @@
 //Tools
-import { useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 
 //Components
 import SpecialsInfo from './SpecialsInfo';
@@ -8,7 +8,15 @@ import SpecialsContext from '../../context/SpecialsContext';
 /**Ingredient list displays a recipe's ingredients along with any related specials. Uses SpecialsInfo as a child component. */
 
 function IngredientsList({recipe}) {
-    const { specials, ingredientIds } = useContext(SpecialsContext);
+    const { specials } = useContext(SpecialsContext);
+    const [ specialIndgredientIds, setspecialIndgredientIds] = useState();
+
+    useEffect(() => {
+        function getIndgredientIds() {
+            setspecialIndgredientIds(specials.map(s => s.ingredientId));
+        };
+        getIndgredientIds();
+    }, []);
 
     return(
         <div className="col-5" id="ingredient-list-box">
@@ -21,7 +29,7 @@ function IngredientsList({recipe}) {
                     <li key={i.uuid} id="ingredient"> 
                         <input type="checkbox" className="mx-2"/> 
                         
-                        {ingredientIds && ingredientIds.indexOf(i.uuid) !== -1 ? 
+                        {specialIndgredientIds && specialIndgredientIds.indexOf(i.uuid) !== -1 ? 
                         
                         <small>
                             <b>

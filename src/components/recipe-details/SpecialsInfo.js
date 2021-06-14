@@ -9,9 +9,9 @@ import "../../styling/specials-box.css";
 
 /**Displays specials information. Links to Edit Specials Form. */
 
-function SpecialsInfo(id, specials) {
+function SpecialsInfo({id}, list) {
     let relaventSpecials = [];
-    for(let s of specials) {
+    for(let s of list) {
         if(id === s.ingredientId) relaventSpecials.push(s);
     };
     return(

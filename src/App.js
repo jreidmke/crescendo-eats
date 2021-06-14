@@ -31,12 +31,14 @@ function App() {
     <div className="App">
       <BrowserRouter>
         {specials && ingredients ? 
-          <SpecialsContext.Provider value={{specials, ingredients}}>
+          <SpecialsContext.Provider value={{specials, setSpecials, ingredients, setIngredients}}>
             <NavBar/>
             <Routes/>
             <Footer/>
-          </SpecialsContext.Provider>
+          </SpecialsContext.Provider>       
+      
         : <Spinner/>}
+
       </BrowserRouter>
     </div>
     );

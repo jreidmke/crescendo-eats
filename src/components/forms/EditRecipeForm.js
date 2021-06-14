@@ -93,6 +93,7 @@ function EditRecipeForm() {
     };
 
     function removeFromIngredientList(ingredientId) {
+        //targets selected ingredient, removes from array via splice method, updates state
         ingredientList.splice(ingredientList.map(i => i.uuid).indexOf(ingredientId), 1);
         setIngredientList([...ingredientList]);
     }
@@ -105,14 +106,24 @@ function EditRecipeForm() {
     };
 
     function moveUp(instruction) {
+
+        //targets selected index
         let index = instructionList.map(i => i.instructions).indexOf(instruction);
+        
+        //refuses to move it to negative idx
         if(!index) return;
+
+        //swaps selected ingredient with preceding 
         [instructionList[index - 1], instructionList[index]] = [instructionList[index], instructionList[index-1]];
         setInstructionList([...instructionList]);
     };
 
     function moveDown(instruction) {
+
+        //works as moveUp function 
         let index = instructionList.map(i => i.instructions).indexOf(instruction);
+
+        //refuses to move outside of arr limits
         if(index === instructionList.length - 1) return;
         [instructionList[index], instructionList[index + 1]] = [instructionList[index + 1], instructionList[index]];
         setInstructionList([...instructionList]);

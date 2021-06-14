@@ -9,6 +9,8 @@ import RecipeCard from './RecipeCard';
 //Icons
 import { FaPlusCircle } from 'react-icons/fa';
 
+/** Lists all Recipes using Child Component, RecipeCard.js */
+
 function Recipes() {
     const [recipes, setRecipes] = useState();
     
@@ -31,7 +33,7 @@ function Recipes() {
                 </div>
                 <div className="row">
                     {recipes.map(r =>
-                    <div className="col-6"> 
+                    <div className="col-6" key={r.uuid}> 
                         <RecipeCard recipe={r}/>
                     </div>)}
                 </div>

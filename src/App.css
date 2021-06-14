@@ -3,6 +3,11 @@
   background-color: lightyellow;
 }
 
+#script {
+  font-family: 'Permanent Marker', cursive;
+}
+/* 
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -37,3 +42,4 @@
     transform: rotate(360deg);
   }
 }
+ */

@@ -9,11 +9,11 @@ import SpecialsContext from '../../context/SpecialsContext';
 
 function IngredientsList({recipe}) {
     const { specials } = useContext(SpecialsContext);
-    const [ specialIndgredientIds, setspecialIndgredientIds] = useState();
+    const [ specialIndgredientIds, setSpecialIndgredientIds] = useState();
 
     useEffect(() => {
         function getIndgredientIds() {
-            setspecialIndgredientIds(specials.map(s => s.ingredientId));
+            setSpecialIndgredientIds(new Set(specials.map(s => s.ingredientId)));
         };
         getIndgredientIds();
     }, []);
@@ -29,7 +29,7 @@ function IngredientsList({recipe}) {
                     <li key={i.uuid} id="ingredient"> 
                         <input type="checkbox" className="mx-2"/> 
                         
-                        {specialIndgredientIds && specialIndgredientIds.indexOf(i.uuid) !== -1 ? 
+                        {specialIndgredientIds && specialIndgredientIds.has(i.uuid) ? 
                         
                         <small>
                             <b>
@@ -38,7 +38,6 @@ function IngredientsList({recipe}) {
                             </b>
 
                         </small>
-                        
 
                         : 
                         

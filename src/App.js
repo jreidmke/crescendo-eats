@@ -1,11 +1,16 @@
-import './App.css';
+//Tools
+import { useEffect, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
+
+//Components
 import CrescendoEatsApi from './api/api';
 import Routes from './routes/Routes';
 import NavBar from "./components/common/NavBar";
 import Footer from "./components/common/Footer";
 import SpecialsContext from './context/SpecialsContext';
-import { useEffect, useState } from 'react';
+
+//Css
+import './App.css';
 
 function App() {
   const [specials, setSpecials] = useState();

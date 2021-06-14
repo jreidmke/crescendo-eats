@@ -12,7 +12,7 @@
 	-A request is made to getAllSpecials()
 	-Specials are set in context. This is to prevent calls to getAllSpecials on each recipe details page
 	-Ingredient Ids are set in context. Similarly to above, this is to prevent calls to getAllSpecials on each recipe details page
-	-A list of all indregdients are set in context. These will be used on the new/edit specials form.
+	-A list of all indregdients are set in context. These will be used on the new/edit specials form. To prevent modified ingredients such as "butter" and "melted butter", UUID was used to check uniqueness. 
 	
 	RENDERING:
 	-The return statement of App.js is wrapped in BrowserRouter component, SpecialsContext component. Then a Nav, Routes and Footer. 
@@ -58,4 +58,7 @@
 	Again, a standard React form. URL contains selected dish to edit, inputs populated with data after get(RecipeCall). One cool function is allowing users to reorder the instructions of a recipe. To accomplish the swap, I used array destructuring. Shares children with NewRecipeForm.
 
 	*NewSpecialForm.js*
-	
+	The key aspect of this form is using context to get a list of all unique ingredients to give specials a (non-madatory) ingredientId property. 
+
+	*EditSpecialForm.js*
+	Matches above for functionality with additional URL check to populate inputs with correct data.

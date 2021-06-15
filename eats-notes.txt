@@ -3,6 +3,7 @@
 1. Removed ingredientIds from context, requiring one less thing to pass around.
 2. Refactored Specials Details to allow for display of multiple Specials for single ingredient.
 3. Removed duplicates from getAllIngredients() call. Slims down select in Specials Forms. 
+4. Point out on IngredientsList.js on line 37, what's going on there?
 
 
 	*App.js*
